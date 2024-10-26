@@ -1,0 +1,518 @@
+.MusicPage {
+    padding-top:13vh;
+    display: block;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    width: 100%;
+}
+
+.SpotifyCollectionBackgroundImage::after{
+    /* Just slightly darken the background container */
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index:-1;
+}
+
+.SpotifyCollectionBackgroundImage img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(15px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Make it cover but not stretch */
+    object-fit: cover;
+}
+
+.MusicPage>h2 {
+    text-align: left;
+    padding-left: 1em;
+}
+
+.SubscribedItemsProgressBar {
+    width: 70%;
+    display: inline-block;
+    margin: auto;
+    margin-top: 1em;
+    height: 5vh;
+    border-radius: 15px;
+    background: white;
+    position: relative;
+}
+
+.SubscribedItemsProgressBarInner {
+    display: inline-block;
+    height: 100%;
+    border-radius: 15px;
+    background: black;
+    transition: width 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.SpotifyCollectionItemTilt {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    overflow: visible;
+    cursor: pointer;
+}
+
+.SpotifyCollectionItem.Circle {
+    border-radius: 50%;  /* Ensure images are circular */
+}
+
+.SpotifyCollectionItemTilt.Large {
+    width: 15em;
+    height: 15em;
+}
+
+.SpotifyCollectionItemTilt.Small {
+    width: 10em;
+    height: 10em;
+}
+
+.ProgressCircle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    pointer-events: none;
+}
+
+
+.SpotifyCollectionItem {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.DownloadProgress {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    padding: .5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.CollectionName {
+    font-size: 1.2em;
+    color: white;
+    padding: .5em;
+    text-align: center;
+    /* margin: 0.5em; */
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    transition: transform 0.1s ease-in-out;
+    /* transform: translateY(100%); */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:2em;
+}
+
+.CollectionName.ShowName {
+    transform: translateY(0);
+}
+
+/* When playlist is hovered, set playlist name translateY to zero */
+.SpotifyCollectionItem:hover .CollectionName {
+    transform: translateY(0);
+}
+
+/* Eveery other element slightly different background */
+
+.CollectionHeaderName {
+    font-size: 3em;
+    margin-bottom: 1em;
+    /* Text shadow to increase legibility */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.CollectionPage {
+    width: 100%;
+    width: 100vw;
+    padding-bottom: 3vh;
+    padding-top:13vh;
+}
+
+.CollectionContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.CollectionExplorerHeader {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    height: auto;
+    /* background:rgba(0,0,0,0.5); */
+    margin-bottom: auto;
+    padding: 5em;
+    padding-bottom: 2em;
+}
+
+.CollectionArt {
+    border-radius: 15px;
+    margin-bottom: 1em;
+    max-width: 100%;
+    object-fit: cover;
+    /* Ensure the image retains its aspect ratio */
+    width: 100%;
+    height: auto;
+    max-width: 20vw;
+    /* Drop shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.CollectionHeaderInfo {
+    padding: 1em;
+    box-sizing: border-box;
+    text-align: center;
+    margin: -1em;
+    /* Text shadow for legibility */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.CollectionExplorerBody {
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+.TrackList {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 0;
+}
+
+
+.TrackItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    height: 75px;
+    margin-bottom: 1em;
+    border-radius: 15px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 0;
+    margin-top: 1em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.TrackItem:nth-of-type(odd) {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.TrackItem:nth-of-type(even) {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.TrackArt {
+    /* Make it retain aspect ratio */
+    height: 100% !important;
+    width: auto !important;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 5px;
+    display: inline-block;
+    /* Give it a nice drop shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.TrackName {
+    text-align: left;
+    margin: auto;
+    padding-left: 1em;
+    flex: 3;
+}
+
+.TrackArtist {
+    text-align: center;
+    padding-right: 1em;
+    margin: auto;
+    min-width: 20%;
+    flex: 1;
+}
+
+.TrackDownloadButton {
+    width: 10%;
+    background: white;
+    height: 100%;
+    padding: 1em;
+    color: black;
+    flex: .5;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.TrackDownloadButton span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+/* Track item has two children with class TrackItemHalf, make the first one text-align left and the second one text-align right */
+.TrackItemHalf {
+    display: inline-flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+
+.TrackItemOverlay {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    transition: opacity 0.2s ease-in-out;
+    color: white;
+    pointer-events: none;
+}
+
+.TrackItemOverlay img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    filter: invert(1);
+}
+
+.TrackItem:hover .TrackItemOverlay {
+    opacity: 1;
+}
+
+.ArtistPage {
+    padding-top: 14vh;
+    padding-bottom: 10vh;
+    display: block;
+    position: relative;
+}
+
+.ArtistName {
+    margin-bottom: 1em;
+}
+
+.MusicPageBackground img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(15px);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Make it cover but not stretch */
+    object-fit: cover;
+}
+
+.ArtistExplorerHeader {
+    display: inline-block;
+    max-width: 500px;
+    text-align: left;
+    vertical-align: top;
+    min-width: 300px;
+    width: 40vw;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.ArtistImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    /* Drop shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.ExportIcon {
+    width: 50px;
+    height: 50px;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.ArtistExplorerAlbums {
+    display: inline-block;
+    min-width: 400px;
+    width: 60vw;
+}
+
+.RequestedLibraryItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5vh;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+
+/* Portrait media query */
+@media screen and (orientation: portrait) {
+    .MusicPage {
+        padding-top:3vh;
+        padding-bottom: 13vh;
+    }
+
+    .CollectionPage{
+        padding-bottom:13vh;
+        padding-top:3vh;
+    }
+
+    .SpotifyCollectionItemTilt {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .SpotifyCollectionItem {
+        width: 100%;
+        height: 100%;
+    }
+
+    .CollectionName {
+        font-size: 1em;
+        transform: translateY(0);
+    }
+
+    .CollectionArt {
+        max-width: 95vw;
+    }
+
+    .CollectionExplorerHeader {
+        padding: 1em;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .TrackItem {
+        height: 100px;
+        font-size: .8em;
+    }
+
+    .TrackItem img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .TrackItem td {
+        font-size: 0.8em;
+    }
+
+    .ArtistExplorerHeader {
+        width: 100%;
+        min-width: 100%;
+        padding: 2em;
+    }
+
+    .ArtistExplorerAlbums {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .SpotifyCollectionItemTilt {
+        width: 20vh;
+        height: 20vh;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .TrackList {
+        max-width: 100%;
+        width: auto;
+        /* TrackList is a table, ensure it can't be wider than it's parent */
+        width: 100%;
+    }
+
+    .CollectionContainer {
+        display: block;
+        width: 100vw;
+        padding: 1em;
+        box-sizing: border-box;
+    }
+
+    .CollectionExplorerHeader {
+        width: auto;
+        max-width: 100vw;
+        box-sizing: border-box;
+        margin: 0;
+        text-align: center;
+    }
+
+    .CollectionExplorerBody {
+        width: auto;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        text-align: center;
+    }
+
+    .CollectionName {
+        font-size: .75em;
+    }
+}
